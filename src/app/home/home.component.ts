@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from '../database.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -7,36 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  usuarios = [
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'},
-    {name: 'josé', email: 'jose.com', telefone: '8822'}
-  ];
+  usuarios=[];
 
-  constructor() { }
+  constructor(private dataService: DatabaseService) { }
 
   ngOnInit() {
+   this.list();
   }
 
+  list(){
+    this.dataService.getUsers().then((usuarios: any[]) => {
+      this.usuarios = usuarios
+    
+    })
+  }
 }
