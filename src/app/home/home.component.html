@@ -1,3 +1,9 @@
-<p>
-  home works!
-</p>
+<div id="container">
+  <table id="user-list" class="table table-hover">
+    <tr *ngFor="let u of usuarios">
+      <td>{{u.name}}</td>
+      <td>{{u.email}}</td>
+      <td>{{u.telefone}}</td>
+    </tr>
+  </table>
+</div>
