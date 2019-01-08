@@ -17,3 +17,11 @@ tr{
     padding-top: 3%;
     padding-bottom: 3%;
 }
+
+@media (width:360px){
+    #container{
+        width: 90%;
+        padding-top: 5%; 
+        padding-bottom: 5%; 
+    }
+}
