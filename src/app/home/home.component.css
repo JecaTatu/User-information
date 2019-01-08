@@ -6,6 +6,7 @@ table{
 }
 #user-list
 {
+    justify-content: center;
     margin: auto;
     width: 80%;
     text-align: center;
