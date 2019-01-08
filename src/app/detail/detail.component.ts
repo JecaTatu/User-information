@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from '../database.service';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-detail',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-  constructor() { }
+  usuarios: object;
+
+  constructor(private dataService: DatabaseService, private route: ActivatedRoute) { 
+    this.route.params.subscribe( params => this.usuarios = params.id)
+  }
 
   ngOnInit() {
+    this.dataService.getUsers().subscribe(
+      data => this.usuarios = data.valueOf['results']
+    )
   }
 
 }

@@ -1,9 +1,10 @@
 <div id="container">
-  <table id="user-list" class="table table-hover">
+  <table id="user-list" class="table table-responsive">
     <tr *ngFor="let u of usuarios">
-      <td>{{u.name}}</td>
+      <a routerLink="/detail/{{u.name.last}}"><td><strong>{{u.name.first + " " + u.name.last}}</strong></td>
       <td>{{u.email}}</td>
-      <td>{{u.telefone}}</td>
+      <td>{{u.phone}}</td>
+    </a>
     </tr>
   </table>
 </div>

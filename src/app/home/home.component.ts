@@ -9,18 +9,23 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-  usuarios=[];
+  usuarios: object;
 
   constructor(private dataService: DatabaseService) { }
 
-  ngOnInit() {
-   this.list();
+    ngOnInit() {
+      return this.dataService.getUsers().subscribe(
+        data => {
+          this.usuarios = data.valueOf()['results']
+        }
+          
+      )
+    }
+
+  // list(){
+  //   this.dataService.getUsers().then((usuarios: any[]) => {
+  //     this.usuarios = usuarios
+    
+  //   })
   }
 
-  list(){
-    this.dataService.getUsers().then((usuarios: any[]) => {
-      this.usuarios = usuarios
-    
-    })
-  }
-}

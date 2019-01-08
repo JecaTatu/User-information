@@ -6,15 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DatabaseService {
 
-  userUrl = 'https://randomuser.me/api/?results=25,format=json';
+  userUrl = 'https://randomuser.me/api/?results=25';
   constructor(private http: HttpClient) { }
 
-  getUsers(): Promise<any[]> {
-    return this.http.get<any[]>(`${this.userUrl}`)
-    .toPromise()
-    .then((resposta: any) =>{
-      console.log("teste" + resposta)
-      return resposta.json()
-    })
+  getUsers(){
+    console.log(this.http.get(`${this.userUrl}`));
+    return this.http.get(`${this.userUrl}`)
   }
 }

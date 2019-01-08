@@ -1,16 +1,25 @@
+a{
+    text-decoration: none !important;
+}
+table{
+    text-decoration-color: black;
+}
 #user-list
 {
     margin: auto;
     width: 80%;
     text-align: center;
-    padding-top: 10%;
     background-color: white;
+    text-decoration-color: black;
 }
 
 tr {
     margin-top: 25px;
 }
 
+tr:hover{
+    background-color: #f0f0f0;
+}
 #container {
     width: 60%;
     background-color: #f0f0f0;
